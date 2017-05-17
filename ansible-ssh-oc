@@ -7,8 +7,9 @@ from ansible.executor.playbook_executor import PlaybookExecutor
 
 import pyperclip
 
-
-globalinventory=Inventory(DataLoader(),VariableManager(),'/etc/ansible/hosts')
+variable_manager = VariableManager()
+globalinventory=Inventory(DataLoader(), variable_manager ,'/home/bosco/userbin/ansible-ssh/dyn_inv.sh')
+variable_manager.set_inventory(globalinventory)
 
 def usage():
     prog = os.path.basename(__file__)

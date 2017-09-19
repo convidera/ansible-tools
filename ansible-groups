@@ -1,6 +1,6 @@
-#!/usr/bin/env python
+#!/usr/bin/env python2
 from subprocess import call, sys, os
-from ansible.inventory import Inventory
+from ansible.inventory.manager import InventoryManager
 
 
 def usage():
@@ -10,7 +10,7 @@ def usage():
 
 
 def get_groups(pattern):
-    inventory = Inventory()
+    inventory = InventoryManager()
     groups = inventory.get_groups()
     if len(pattern) == 0:
         return groups
